@@ -330,5 +330,32 @@ catButton.addEventListener("click", filter);
 
 
 //
+// DOGFILTER BUTTON 
 
 
+//NEED FILTER BUTTON FOR DOGS ONLY
+//FIRST SELECT THAT HTML BUTTON? 
+const dogButton = document.querySelector("#dog-button");
+
+//CREATE FUNCTION TO FILTER OUT THE CATS 
+// const filter = (stuff, type) => { ?
+
+const dogfilter = () => {
+// empty array to hold our dogs ?********
+  let dogArray = [];
+
+// for of loop to loop over that dog array..
+  for (pet of pets) {
+    // if pet type is a dog
+    if (pet.type === "dog") {
+      // if it is then push it into the dog array
+      dogArray.push(pet);
+    }
+  }
+
+// now let's use the function we just made above to render our new dog array to the page 
+  renderToDom(dogArray);
+};
+
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
+dogButton.addEventListener("click", dogfilter); 
