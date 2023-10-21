@@ -299,7 +299,7 @@ const renderToDom = (pets) => {
 };
 //RENDER AKA PUT CARDS ON THE PAGE 
 renderToDom(pets);
-
+// THERE IS NO NEED TO REPASTE THE CODE ABOVE. THIS IS SIMPLY TO RENDER PETS TO DOM AND IF YOU PASTE IT, ITS GLOBAL SCOPE AND WILL CAUSE AN ERROR 
 
 //NEED FILTER BUTTON FOR CATS ONLY
 //FIRST SELECT THAT HTML BUTTON? 
@@ -359,3 +359,38 @@ const dogfilter = () => {
 
 //event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
 dogButton.addEventListener("click", dogfilter); 
+
+
+//
+// DINO BUTTON 
+
+
+//NEED FILTER BUTTON FOR DINOS ONLY
+//FIRST SELECT THAT HTML BUTTON? 
+const dinoButton = document.querySelector("#dino-button");
+
+//CREATE FUNCTION TO FILTER OUT THE DINOS 
+// const filter = (stuff, type) => { ?
+
+const dinofilter = () => {
+// empty array to hold our dino ?********
+  let dinoArray = [];
+
+// for of loop to loop over that dino array..
+  for (pet of pets) {
+    // if pet type is a dino
+    if (pet.type === "dino") {
+      // if it is then push it into the dog array
+      dinoArray.push(pet);
+    }
+  }
+
+// now let's use the function we just made above to render our new dino array to the page 
+  renderToDom(dinoArray);
+};
+
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
+dinoButton.addEventListener("click", dinofilter); 
+
+
+//
