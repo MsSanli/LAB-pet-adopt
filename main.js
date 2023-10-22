@@ -288,7 +288,10 @@ const renderToDom = (pets) => {
     <h5 class="card-title">${pet.color}</h5>
     <p class="card-text">${pet.specialSkill}</p>
     <div class="card-footer">${pet.type}</div>
+    <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
+
   </div>
+
 </div>`;
   });
   
@@ -399,51 +402,71 @@ showAllButton.addEventListener("click", () => {
 
 
 
-// const form = document.querySelector("form");
+const form = document.querySelector('form');
 
-// const createPet = (event) => {
-//   event.preventDefault();
-//   // create object to hold these
-//   const newPetObj = {
-//     id: pets.length + 1,
-//     name: document.querySelector("#petName").value,
-//     color: document.querySelector("#petColor").value,
-//     specialSkill: "Track star",
-//     type: document.querySelector("#petType").checked,
-//     imageUrl:
-//       "https://as2.ftcdn.net/v2/jpg/02/14/22/43/1000_F_214224389_3g7pWLOnL3zRMBiArR4skEyeLtym0MGt.jpg",
-//   };
+const createPet = (event) => {
+  event.preventDefault();
+  // create object to hold these
+  const newPetObj = {
+    id: pets.length + 1,
+    name: document.querySelector("#petName").value,
+    color: document.querySelector("#petColor").value,
+    type: document.querySelector("#petType").value,
+    specialSkill: "Track star",
+    imageUrl: document.querySelector("#image").checked,
+    
+  };
 
-//   pets.push(newPetObj);
-//   console.log(pets.length);
-//   rendertoDom(pets);
-//   form.reset();
-//   //  clear form out
-// };
-
-// form.addEventListener("submit", createPet);
+  pets.push(newPetObj);
+  renderToDom(pets);
+  form.reset();
+  //  clear form out
+};
+// event listener for form submit and pass it the function 
+form.addEventListener("submit", createPet);
 
 // // DELETE BUTTON
 
 // //SELECT HTML app DIV
 const app = document.querySelector("#app");
-// // add event listener to listen to each of delete button/function
-// const deletePet = (event) => {
-//   if (event.target.id.includes("delete")) {
-//     // do our delete logic
-//     // determine which object I'm deleting by the id
-//     // id="delete" "--x" oh ok
-//     const [, id] = event.target.id.split("--");
-//     // identify where in the array that object is
-//     const index = pets.findIndex((obj) => obj.id === Number(id));
-//     // remove object from array
-//     pets.splice(index, 1);
-//     console.log(pets.length);
-//     // rerender w/ the array
-//     rendertoDom(pets);
-//   }
-// };
 
-// app.addEventListener("click", deletePet);
 
-console.log(app);
+
+// add event listener to listen to each of delete button/function
+const deletePet = (event) => {
+  if (event.target.id.includes("delete")) {
+    // do our delete logic
+    // determine which object I'm deleting by the id
+    // id="delete" "--x" oh ok
+    const [, id] = event.target.id.split("--");
+    // identify where in the array that object is
+    const index = pets.findIndex((obj) => obj.id === Number(id));
+    // remove object from array
+    pets.splice(index, 1);
+    console.log(pets.length);
+    // rerender w/ the array
+    renderToDom(pets);
+  }
+};
+
+app.addEventListener("click", deletePet);
+
+
+
+
+// not sure if the function below is needed ? 
+
+
+const startApp = () => {
+  remderToDom(pets);
+  // events(); // ALWAYS LAST
+}
+
+
+startApp();
+
+
+
+
+
+// console.log(app);
