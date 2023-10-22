@@ -15,7 +15,8 @@ const pets = [
     specialSkill:
       "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
     type: "dino",
-    imageUrl: "https://images.vexels.com/media/users/3/293984/isolated/lists/36e69f2873ebfb7de7abb5473fa5333a-cute-self-esteem-dino-character.png",
+    imageUrl:
+      "https://images.vexels.com/media/users/3/293984/isolated/lists/36e69f2873ebfb7de7abb5473fa5333a-cute-self-esteem-dino-character.png",
   },
   {
     id: 3,
@@ -142,7 +143,7 @@ const pets = [
     specialSkill: "Drives at a safe rate of speed in snow or rain.",
     type: "dino",
     imageUrl:
-      "https://images.readwrite.com/wp-content/uploads/2018/03/t-rex-dino-quiz-e1490854556549.jpg",
+      "https://cdn.paleo.gg/games/jwpo/images/dino/tyrannosaurus_rex.png",
   },
   {
     id: 17,
@@ -151,7 +152,8 @@ const pets = [
     specialSkill:
       "Does not freak out if you haven’t seen his favorite movie (The Big Lebowski).",
     type: "cat",
-    imageUrl: "http://www.funnycatsite.com/pictures/Close_Up_Yawn.jpg",
+    imageUrl:
+      "https://i.pinimg.com/474x/51/41/c3/5141c3ae269e4382846ac3067cbbf9a9.jpg",
   },
   {
     id: 18,
@@ -160,7 +162,7 @@ const pets = [
     specialSkill: "Proficient in air guitar",
     type: "dino",
     imageUrl:
-      "https://www.nation.co.ke/image/view/-/4078922/highRes/1742693/-/maxw/600/-/1453yvh/-/DINO.jpg",
+      "https://cdn.paleo.gg/games/jwpo/images/dino/tyrannosaurus_rex.png",
   },
   {
     id: 19,
@@ -169,7 +171,7 @@ const pets = [
     specialSkill: "Listens attentively to boring stories.",
     type: "dog",
     imageUrl:
-      "http://dailynewsdig.com/wp-content/uploads/2014/03/Creative-And-Funny-Dog-Stock-Photography-Pictures-2.jpg",
+      "https://res.cloudinary.com/everydotorg/image/upload/f_auto,c_limit,w_256,q_auto/faja_profile/oovkuautvjurvb0gkku5",
   },
   {
     id: 20,
@@ -177,7 +179,8 @@ const pets = [
     color: "Black",
     specialSkill: "Uses litter box at appropriate hours.",
     type: "cat",
-    imageUrl: "http://www.funnycatsite.com/pictures/Lazy_White_Cat.jpg",
+    imageUrl:
+      "https://i.pinimg.com/474x/74/94/da/7494da32cf94655355b9334f95fd7dfe.jpg",
   },
   {
     id: 21,
@@ -186,7 +189,7 @@ const pets = [
     specialSkill: "Owns a Nintendo Power Glove.",
     type: "dino",
     imageUrl:
-      "https://img.buzzfeed.com/buzzfeed-static/static/2015-11/2/12/enhanced/webdr15/anigif_enhanced-29802-1446485228-10.gif?crop=250:165;0,0&downsize=715",
+      "https://cdn.pixabay.com/photo/2012/04/30/11/08/brown-44833_960_720.png",
   },
   {
     id: 22,
@@ -195,7 +198,7 @@ const pets = [
     specialSkill: "Is comfortable with jokes about his receding hairline.",
     type: "cat",
     imageUrl:
-      "http://funnyanimalphoto.com/wp-content/uploads/2013/08/cat_caught_mouse_thegatewaypundit.jpg",
+      "https://styles.redditmedia.com/t5_3fvdo5/styles/communityIcon_d99w7zbgzdo71.png?width=256&s=a39f78f98da5370c2b427adbf70db3cdbd701d46",
   },
   {
     id: 23,
@@ -214,7 +217,7 @@ const pets = [
       "Participates in karaoke but does not force others to go out to karaoke.",
     type: "dog",
     imageUrl:
-      "http://www.dogbreedplus.com/dog_breeds/images/basset-hound-4.jpg",
+      "https://i.pinimg.com/474x/88/25/21/882521a6c1fc9b389949700558a1ab25.jpg",
   },
   {
     id: 25,
@@ -223,7 +226,7 @@ const pets = [
     specialSkill: "Knows the words to 4 rap songs.",
     type: "cat",
     imageUrl:
-      "http://funbk.s3.amazonaws.com/wp-content/uploads/2016/06/funny-cat-video-which-will-make-you-laugh-louder.jpg",
+      "https://is5-ssl.mzstatic.com/image/thumb/Purple118/v4/2b/46/49/2b464997-a414-6956-7975-0968fda28fce/source/256x256bb.jpg",
   },
   {
     id: 26,
@@ -268,37 +271,202 @@ const pets = [
     specialSkill: "Doesn't get weirded out by the word 'moist.'",
     type: "dino",
     imageUrl:
-      "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119",
+      "https://ih1.redbubble.net/image.1974503408.9538/st,small,507x507-pad,600x600,f8f8f8.jpg",
   },
 ];
 
-const app = document.querySelector("#app");
-
-let domString = "";
-
-for (pet of pets) {
-  domString += `
-    <div class="card" style="width: 18rem;">
+// FUNCTION TO RENDER CARDS TO DOM THAT TAKES AN ARRAY
+const renderToDom = (pets) => {
+  //THIS IS DOMSTRING SO WE CAN PUSH CARDS TO IT
+  let domString = "";
+  //FOR EACH LOOP TO LOOP OVER ARRAY AND CREAT PET CARDS
+  pets.forEach((pet) => {
+    domString += `<div class="card" style="width: 18rem;">
+  <div class="card-header">${pet.name}</div>
   <img src="${pet.imageUrl}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">${pet.name}</h5>
+    <h5 class="card-title">${pet.color}</h5>
     <p class="card-text">${pet.specialSkill}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="card-footer">${pet.type}</div>
+    <button class="btn btn-danger" id="delete--${pet.id}">Delete</button>
+
   </div>
-</div>
-    `;
+
+</div>`;
+  });
+  
+  const app = document.querySelector("#app");
+  //NOW SET CARDS TO OUR APP DIVS INNER HTML**********
+  app.innerHTML = domString;
+};
+//RENDER AKA PUT CARDS ON THE PAGE
+renderToDom(pets);
+// THERE IS NO NEED TO REPASTE THE CODE ABOVE. THIS IS SIMPLY TO RENDER PETS TO DOM AND IF YOU PASTE IT, ITS GLOBAL SCOPE AND WILL CAUSE AN ERROR
+
+//NEED FILTER BUTTON FOR CATS ONLY
+//FIRST SELECT THAT HTML BUTTON?
+const catButton = document.querySelector("#cat-button");
+
+//CREATE FUNCTION TO FILTER OUT THE CATS
+// const filter = (stuff, type) => { ?
+
+const filter = () => {
+  // empty array to hold our cats ?********
+  let catArray = [];
+
+  // for of loop to loop over that cat array..
+  for (pet of pets) {
+    // if pet type is a cat
+    if (pet.type === "cat") {
+      // if it is then push it into the catarray
+      catArray.push(pet);
+    }
+  }
+
+  // now let's use the function we just made above to render our new cat array to the page
+  renderToDom(catArray);
+};
+
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+catButton.addEventListener("click", filter);
+
+//
+// DOGFILTER BUTTON
+
+//NEED FILTER BUTTON FOR DOGS ONLY
+//FIRST SELECT THAT HTML BUTTON?
+const dogButton = document.querySelector("#dog-button");
+
+//CREATE FUNCTION TO FILTER OUT THE CATS
+// const filter = (stuff, type) => { ?
+
+const dogfilter = () => {
+  // empty array to hold our dogs ?********
+  let dogArray = [];
+
+  // for of loop to loop over that dog array..
+  for (pet of pets) {
+    // if pet type is a dog
+    if (pet.type === "dog") {
+      // if it is then push it into the dog array
+      dogArray.push(pet);
+    }
+  }
+
+  // now let's use the function we just made above to render our new dog array to the page
+  renderToDom(dogArray);
+};
+
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+dogButton.addEventListener("click", dogfilter);
+
+//
+// DINO BUTTON
+
+//NEED FILTER BUTTON FOR DINOS ONLY
+//FIRST SELECT THAT HTML BUTTON?
+const dinoButton = document.querySelector("#dino-button");
+
+//CREATE FUNCTION TO FILTER OUT THE DINOS
+// const filter = (stuff, type) => { ?
+
+const dinofilter = () => {
+  // empty array to hold our dino ?********
+  let dinoArray = [];
+
+  // for of loop to loop over that dino array..
+  for (pet of pets) {
+    // if pet type is a dino
+    if (pet.type === "dino") {
+      // if it is then push it into the dog array
+      dinoArray.push(pet);
+    }
+  }
+
+  // now let's use the function we just made above to render our new dino array to the page
+  renderToDom(dinoArray);
+};
+
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+dinoButton.addEventListener("click", dinofilter);
+
+//select show button IM STILL WORKING ON THIS
+const showAllButton = document.querySelector("#show-button");
+
+// 2. Add click event to show all pets
+showAllButton.addEventListener("click", () => {
+
+  renderToDom(pets);
+});
+
+
+
+
+const form = document.querySelector('form');
+
+const createPet = (event) => {
+  event.preventDefault();
+  // create object to hold these
+  const newPetObj = {
+    id: pets.length + 1,
+    name: document.querySelector("#petName").value,
+    color: document.querySelector("#petColor").value,
+    type: document.querySelector("#petType").value,
+    specialSkill: "Track star",
+    imageUrl: document.querySelector("#image").checked,
+    
+  };
+
+  pets.push(newPetObj);
+  renderToDom(pets);
+  form.reset();
+  //  clear form out
+};
+// event listener for form submit and pass it the function 
+form.addEventListener("submit", createPet);
+
+// // DELETE BUTTON
+
+// //SELECT HTML app DIV
+const app = document.querySelector("#app");
+
+
+
+// add event listener to listen to each of delete button/function
+const deletePet = (event) => {
+  if (event.target.id.includes("delete")) {
+    // do our delete logic
+    // determine which object I'm deleting by the id
+    // id="delete" "--x" oh ok
+    const [, id] = event.target.id.split("--");
+    // identify where in the array that object is
+    const index = pets.findIndex((obj) => obj.id === Number(id));
+    // remove object from array
+    pets.splice(index, 1);
+    console.log(pets.length);
+    // rerender w/ the array
+    renderToDom(pets);
+  }
+};
+
+app.addEventListener("click", deletePet);
+
+
+
+
+// not sure if the function below is needed ? 
+
+
+const startApp = () => {
+  remderToDom(pets);
+  // events(); // ALWAYS LAST
 }
 
-app.innerHTML = domString;
 
-// for (let i = 0; i < pets.length; i++;){
-//   console.log([i]);
-//   console.log(pets.[i].key);
-// }
-// ****for (pet of pets){
-//   console.log(pet.color);
-// }
+startApp();
 
-// pets.forEach((pet) => {
-//   console.log(pet.specialSkill)
-// })
+
+
+
+
+// console.log(app);
