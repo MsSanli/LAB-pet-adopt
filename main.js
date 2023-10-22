@@ -152,7 +152,8 @@ const pets = [
     specialSkill:
       "Does not freak out if you haven’t seen his favorite movie (The Big Lebowski).",
     type: "cat",
-    imageUrl: "https://i.pinimg.com/474x/51/41/c3/5141c3ae269e4382846ac3067cbbf9a9.jpg",
+    imageUrl:
+      "https://i.pinimg.com/474x/51/41/c3/5141c3ae269e4382846ac3067cbbf9a9.jpg",
   },
   {
     id: 18,
@@ -274,7 +275,6 @@ const pets = [
   },
 ];
 
-
 // FUNCTION TO RENDER CARDS TO DOM THAT TAKES AN ARRAY
 const renderToDom = (pets) => {
   //THIS IS DOMSTRING SO WE CAN PUSH CARDS TO IT
@@ -291,28 +291,27 @@ const renderToDom = (pets) => {
   </div>
 </div>`;
   });
-
-  //SELECT HTML app DIV
+  
   const app = document.querySelector("#app");
   //NOW SET CARDS TO OUR APP DIVS INNER HTML**********
   app.innerHTML = domString;
 };
-//RENDER AKA PUT CARDS ON THE PAGE 
+//RENDER AKA PUT CARDS ON THE PAGE
 renderToDom(pets);
-// THERE IS NO NEED TO REPASTE THE CODE ABOVE. THIS IS SIMPLY TO RENDER PETS TO DOM AND IF YOU PASTE IT, ITS GLOBAL SCOPE AND WILL CAUSE AN ERROR 
+// THERE IS NO NEED TO REPASTE THE CODE ABOVE. THIS IS SIMPLY TO RENDER PETS TO DOM AND IF YOU PASTE IT, ITS GLOBAL SCOPE AND WILL CAUSE AN ERROR
 
 //NEED FILTER BUTTON FOR CATS ONLY
-//FIRST SELECT THAT HTML BUTTON? 
+//FIRST SELECT THAT HTML BUTTON?
 const catButton = document.querySelector("#cat-button");
 
-//CREATE FUNCTION TO FILTER OUT THE CATS 
+//CREATE FUNCTION TO FILTER OUT THE CATS
 // const filter = (stuff, type) => { ?
 
 const filter = () => {
-// empty array to hold our cats ?********
+  // empty array to hold our cats ?********
   let catArray = [];
 
-// for of loop to loop over that cat array..
+  // for of loop to loop over that cat array..
   for (pet of pets) {
     // if pet type is a cat
     if (pet.type === "cat") {
@@ -321,30 +320,28 @@ const filter = () => {
     }
   }
 
-// now let's use the function we just made above to render our new cat array to the page 
+  // now let's use the function we just made above to render our new cat array to the page
   renderToDom(catArray);
 };
 
-//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
-catButton.addEventListener("click", filter); 
-
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+catButton.addEventListener("click", filter);
 
 //
-// DOGFILTER BUTTON 
-
+// DOGFILTER BUTTON
 
 //NEED FILTER BUTTON FOR DOGS ONLY
-//FIRST SELECT THAT HTML BUTTON? 
+//FIRST SELECT THAT HTML BUTTON?
 const dogButton = document.querySelector("#dog-button");
 
-//CREATE FUNCTION TO FILTER OUT THE CATS 
+//CREATE FUNCTION TO FILTER OUT THE CATS
 // const filter = (stuff, type) => { ?
 
 const dogfilter = () => {
-// empty array to hold our dogs ?********
+  // empty array to hold our dogs ?********
   let dogArray = [];
 
-// for of loop to loop over that dog array..
+  // for of loop to loop over that dog array..
   for (pet of pets) {
     // if pet type is a dog
     if (pet.type === "dog") {
@@ -353,30 +350,28 @@ const dogfilter = () => {
     }
   }
 
-// now let's use the function we just made above to render our new dog array to the page 
+  // now let's use the function we just made above to render our new dog array to the page
   renderToDom(dogArray);
 };
 
-//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
-dogButton.addEventListener("click", dogfilter); 
-
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+dogButton.addEventListener("click", dogfilter);
 
 //
-// DINO BUTTON 
-
+// DINO BUTTON
 
 //NEED FILTER BUTTON FOR DINOS ONLY
-//FIRST SELECT THAT HTML BUTTON? 
+//FIRST SELECT THAT HTML BUTTON?
 const dinoButton = document.querySelector("#dino-button");
 
-//CREATE FUNCTION TO FILTER OUT THE DINOS 
+//CREATE FUNCTION TO FILTER OUT THE DINOS
 // const filter = (stuff, type) => { ?
 
 const dinofilter = () => {
-// empty array to hold our dino ?********
+  // empty array to hold our dino ?********
   let dinoArray = [];
 
-// for of loop to loop over that dino array..
+  // for of loop to loop over that dino array..
   for (pet of pets) {
     // if pet type is a dino
     if (pet.type === "dino") {
@@ -385,12 +380,70 @@ const dinofilter = () => {
     }
   }
 
-// now let's use the function we just made above to render our new dino array to the page 
+  // now let's use the function we just made above to render our new dino array to the page
   renderToDom(dinoArray);
 };
 
-//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function! 
-dinoButton.addEventListener("click", dinofilter); 
+//event listener stuff. will LISTEN to us to CLICK the button. Upon CLICK it will invoke filter function!
+dinoButton.addEventListener("click", dinofilter);
+
+//select show button IM STILL WORKING ON THIS
+const showAllButton = document.querySelector("#show-button");
+
+// 2. Add click event to show all pets
+showAllButton.addEventListener("click", () => {
+
+  renderToDom(pets);
+});
 
 
-//
+
+
+// const form = document.querySelector("form");
+
+// const createPet = (event) => {
+//   event.preventDefault();
+//   // create object to hold these
+//   const newPetObj = {
+//     id: pets.length + 1,
+//     name: document.querySelector("#petName").value,
+//     color: document.querySelector("#petColor").value,
+//     specialSkill: "Track star",
+//     type: document.querySelector("#petType").checked,
+//     imageUrl:
+//       "https://as2.ftcdn.net/v2/jpg/02/14/22/43/1000_F_214224389_3g7pWLOnL3zRMBiArR4skEyeLtym0MGt.jpg",
+//   };
+
+//   pets.push(newPetObj);
+//   console.log(pets.length);
+//   rendertoDom(pets);
+//   form.reset();
+//   //  clear form out
+// };
+
+// form.addEventListener("submit", createPet);
+
+// // DELETE BUTTON
+
+// //SELECT HTML app DIV
+const app = document.querySelector("#app");
+// // add event listener to listen to each of delete button/function
+// const deletePet = (event) => {
+//   if (event.target.id.includes("delete")) {
+//     // do our delete logic
+//     // determine which object I'm deleting by the id
+//     // id="delete" "--x" oh ok
+//     const [, id] = event.target.id.split("--");
+//     // identify where in the array that object is
+//     const index = pets.findIndex((obj) => obj.id === Number(id));
+//     // remove object from array
+//     pets.splice(index, 1);
+//     console.log(pets.length);
+//     // rerender w/ the array
+//     rendertoDom(pets);
+//   }
+// };
+
+// app.addEventListener("click", deletePet);
+
+console.log(app);
