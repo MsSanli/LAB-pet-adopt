@@ -277,7 +277,7 @@ const pets = [
 
 // FUNCTION TO RENDER CARDS TO DOM THAT TAKES AN ARRAY
 const renderToDom = (pets) => {
-  //THIS IS DOMSTRING SO WE CAN PUSH CARDS TO IT
+  //create DOMSTRING SO WE CAN PUSH CARDS TO IT
   let domString = "";
   //FOR EACH LOOP TO LOOP OVER ARRAY AND CREAT PET CARDS
   pets.forEach((pet) => {
@@ -294,7 +294,12 @@ const renderToDom = (pets) => {
 
 </div>`;
   });
+
+
+  domString = `<div class="card-container">${domString}</div>`;
+
   
+
   const app = document.querySelector("#app");
   //NOW SET CARDS TO OUR APP DIVS INNER HTML**********
   app.innerHTML = domString;
@@ -315,7 +320,7 @@ const filter = () => {
   let catArray = [];
 
   // for of loop to loop over that cat array..
-  for (pet of pets) {
+  for (let pet of pets) {
     // if pet type is a cat
     if (pet.type === "cat") {
       // if it is then push it into the catarray
@@ -374,7 +379,7 @@ const dinofilter = () => {
   // empty array to hold our dino ?********
   let dinoArray = [];
 
-  // for of loop to loop over that dino array..
+  // for of loop to loop over that pets
   for (pet of pets) {
     // if pet type is a dino
     if (pet.type === "dino") {
@@ -458,15 +463,7 @@ app.addEventListener("click", deletePet);
 
 
 const startApp = () => {
-  remderToDom(pets);
-  // events(); // ALWAYS LAST
+  renderToDom(pets);
+  // events(); // ALWAYS LAST. Why? - __ hasn't been called yet  
 }
-
-
 startApp();
-
-
-
-
-
-// console.log(app);

@@ -1,0 +1,70 @@
+body {
+  background-color:#FFF0F5;
+}
+
+/* this is what you named the card in js within the domstring */
+
+.card {
+
+  padding: 5px;
+  border: 2px solid #000;
+  background-color: #FFFACD;
+  
+}
+
+.card-container {
+
+  display:inline-flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+/* Prevents wrapping to the next line */
+  justify-content: space-between; /* Adjust this as needed for spacing */
+  margin: auto;
+}
+
+/* .form {
+
+} */
+
+.form-control {
+  width: 15%;
+}
+
+
+#app {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 20px;
+
+}
+
+.card-img-top {
+  
+  width: 250px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  /* I looked up the next 3 lines.*/
+  object-fit: cover; /* This property helps maintain the image's aspect ratio while covering its container */
+  display: block; /* Ensures the image is a block element */
+  margin: 0 auto; /* Center the image horizontally within the card */}
+ 
+ 
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+   
+
+  .button-group {
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+  }
+
+ .btn-primary {
+  display: inline-flex;
+  background-color: #808000;
+
+
+
+ }
